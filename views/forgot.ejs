@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel='stylesheet' href='/stylesheets/login.css' />
+        <link rel='stylesheet' href='/stylesheets/nav.css' />
+    </head>
+    <body>
+        <div class="topnav" id="myTopnav">
+            <a href="/" class="active"><b>MATCHA</b> </a>
+            <a href="register" style="color: #f53b57;"><b>Register</b> </a>
+            <a href="login" style="color: #f53b57;"><b>Login</b> </a>
+            <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+        </div>
+        <div class="login">
+            <h1>Recover</h1>
+            <form method="post" action="/forgot/forgot">
+                <input type="Email" name="email" id="email" placeholder="Email" required="required"/>
+                <button type="submit" class="btn btn-primary btn-block btn-large">submit</button>
+            </form>
+            <p id="prompt"></p>
+        </div>
+        <script>
+            function myFunction() {
+                var x = document.getElementById("myTopnav");
+                if (x.className === "topnav") {
+                    x.className += " responsive";
+                } else {
+                    x.className = "topnav";
+                }
+            }
+        </script> 
+        <script>
+            if ('<%= check%>' == "1"){
+                document.getElementById("email").style.borderColor = "red";
+                document.getElementById("prompt").style.color = "red";
+                document.getElementById("prompt").innerHTML = "Invalid email";
+
+            }
+            if ('<%= check%>' == "2"){
+                document.getElementById("email").style.borderColor = "green";
+                document.getElementById("prompt").style.color = "green";
+                document.getElementById("prompt").innerHTML = "New password sent to email\nwhich can be reset after login ";
+            } 
+        </script>
+    </body>
+</html>

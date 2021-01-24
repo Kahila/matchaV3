@@ -1,0 +1,112 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel='stylesheet' href='/stylesheets/login.css' />
+    <link rel='stylesheet' href='/stylesheets/nav.css' />
+    <link rel='stylesheet' href='/stylesheets/users.css' />
+</head>
+
+<body>
+    <div class="topnav" id="myTopnav">
+        <a href="/settings" class="active"><b>MATCHA</b> </a>
+        <a href="/logout/logout" style="color: #f53b57; float: right;"><b>Logout</b> </a>
+        <a href="/settings" style="color: #f53b57;"><b>Settings</b> </a>
+        <a href="#" style="color: #f53b57;"><b>Chat</b> </a>
+        <a href="#" style="color: #f53b57;"><b>Notifications</b> </a>
+        <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+    </div>
+
+    <div class="users">
+        <% for (var item in users){%>
+            <div class="container">
+                <div class="pic">
+                    <div class="rating-box">
+                        <% if (fame[item] == 0){%>
+                            <span class="rating-star empty-star"></span>
+                            <span class="rating-star empty-star"></span>
+                            <span class="rating-star empty-star"></span>
+                            <span class="rating-star empty-star"></span>
+                            <span class="rating-star empty-star"></span>
+                            <% } %>
+                                <% if (fame[item] == 1){%>
+                                    <span class="rating-star full-star"></span>
+                                    <span class="rating-star full-star"></span>
+                                    <span class="rating-star full-star"></span>
+                                    <span class="rating-star full-star"></span>
+                                    <span class="rating-star full-star"></span>
+                                    <% } %>
+                                        <% if (fame[item] == 2){%>
+                                            <span class="rating-star full-star"></span>
+                                            <span class="rating-star full-star"></span>
+                                            <span class="rating-star empty-star"></span>
+                                            <span class="rating-star empty-star"></span>
+                                            <span class="rating-star empty-star"></span>
+                                            <% } %>
+                                                <% if (fame[item] == 3){%>
+                                                    <span class="rating-star full-star"></span>
+                                                    <span class="rating-star full-star"></span>
+                                                    <span class="rating-star full-star"></span>
+                                                    <span class="rating-star empty-star"></span>
+                                                    <span class="rating-star empty-star"></span>
+                                                    <% } %>
+                                                        <% if (fame[item] == 4){%>
+                                                            <span class="rating-star full-star"></span>
+                                                            <span class="rating-star full-star"></span>
+                                                            <span class="rating-star full-star"></span>
+                                                            <span class="rating-star full-star"></span>
+                                                            <span class="rating-star empty-star"></span>
+                                                            <% } %>
+                                                                <% if (fame[item] == 5){%>
+                                                                    <span class="rating-star full-star"></span>
+                                                                    <span class="rating-star full-star"></span>
+                                                                    <span class="rating-star full-star"></span>
+                                                                    <span class="rating-star full-star"></span>
+                                                                    <span class="rating-star full-star"></span>
+                                                                    <% } %>
+                    </div>
+                    <!-- <div class="arrow-box"><svg class="arrow" width="24" height="24" viewBox="0 0 24 24">
+						<path d="M11,4H13V16L18.5,10.5L19.92,11.92L12,19.84L4.08,11.92L5.5,10.5L11,16V4Z"></path>
+					  </svg></div> -->
+                    <img class="kratos" src="<%= img[item]%>">
+                </div>
+                <div class="name-box">
+                    <h2>
+                        <%= users[item] %>, <span class="age"> <%= age[item]%> </span></h2>
+                    <p>13 miles away</p>
+                </div>
+                <div class="footer">
+                    <div class="circle" id="circletwo">
+                        <a href="">
+                            <svg class="star" width="24" height="24" viewBox="0 0 24 24">
+							<path d="M15 12c0 1.654-1.346 3-3 3s-3-1.346-3-3 1.346-3 3-3 3 1.346 3 3zm9-.449s-4.252 8.449-11.985 8.449c-7.18 0-12.015-8.449-12.015-8.449s4.446-7.551 12.015-7.551c7.694 0 11.985 7.551 11.985 7.551zm-7 .449c0-2.757-2.243-5-5-5s-5 2.243-5 5 2.243 5 5 5 5-2.243 5-5z">
+							</path>
+						</svg>
+                        </a>
+                    </div>
+                    <div class="circle" id="circlethree">
+                        <a href="">
+                            <svg class="heart" width="24" height="24" viewBox="0 0 24 24">
+							<path d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z">
+							</path>
+						</svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <%} %>
+    </div>
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+    </script>
+</body>
+
+</html>

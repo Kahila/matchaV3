@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel='stylesheet' href='/stylesheets/login.css' />
+        <link rel='stylesheet' href='/stylesheets/nav.css' />
+    </head>
+    <body>
+        <div class="topnav" id="myTopnav">
+            <a href="/" class="active"><b>MATCHA</b> </a>
+            <a href="login" style="color: #f53b57;"><b>Login</b> </a>
+            <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+        </div>
+        <p id="p3"></p>
+        <div class="login">
+            <h1>Register</h1>
+            <form method="post" action="/register/register">
+                <input type="text" name="uname" id="uname" placeholder="Username" required />
+                <input type="text" name="fname" id="fname"  placeholder="First Name" required/>
+                <input type="text" name="lname"  id="lname" placeholder="Last Name" required/>
+                <input type="Email" name="email" id="email"  placeholder="email" required/>
+                <input type="password" name="p1" id="p1" placeholder="Password" required/>
+                <input type="password" name="p2" id="p2" placeholder="Password confirm" required/>
+                <button type="submit" class="btn btn-primary btn-block btn-large">submit</button>
+            </form>
+        </div>
+        <script>
+            function myFunction() {
+                var x = document.getElementById("myTopnav");
+                if (x.className === "topnav") {
+                    x.className += " responsive";
+                } else {
+                    x.className = "topnav";
+                }
+            }
+        </script>
+        <script>
+            if ('<%= error%>' == "-1"){
+                document.getElementById("uname").value = "<%= userName%>";
+                document.getElementById("fname").value = "<%= firstName%>";
+                document.getElementById("lname").value = "<%= lastName%>";
+                document.getElementById("email").value = "<%= email%>";
+
+                document.getElementById("email").style.borderColor = "red";
+                window.alert("User Email Already In Use");
+            }else if ('<%= error%>' == "-2"){
+                document.getElementById("uname").value = "<%= userName%>";
+                document.getElementById("fname").value = "<%= firstName%>";
+                document.getElementById("lname").value = "<%= lastName%>";
+                document.getElementById("email").value = "<%= email%>";
+
+                document.getElementById("p1").style.borderColor = "red";
+                document.getElementById("p2").style.borderColor = "red";
+                window.alert("Passwords Do not match Or Less Than Six Charectors Long");
+            }else if ('<%= error%>' == "0"){
+                window.alert("Please check email to confirm account");
+            }
+        </script>
+    </body>
+</html>

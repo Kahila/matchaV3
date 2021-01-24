@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel='stylesheet' href='/stylesheets/login.css' />
+        <link rel='stylesheet' href='/stylesheets/nav.css' />
+    </head>
+    <body>
+        <div class="topnav" id="myTopnav">
+            <a href="/settings" class="active"><b>MATCHA</b> </a>
+            <a href="/logout/logout" style="color: #f53b57;"><b>Logout</b> </a>
+            <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+        </div>
+        <p id="p3"></p>
+        <div class="login" style="top: 230px;">
+            <h1>Account SetUp</h1>
+            <form method="post" action="/settings/settings" enctype="multipart/form-data" class="settings">
+                <select name="gender" id="gender">
+                    <option value="t">Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Homosexual">Homosexual</option>
+                  </select>
+                  <label for="age">Age:</label>
+                  <input type="number" id="age" name="age" min="18" max="60" value="0">
+                  <select name="pref" id="pref">
+                    <option value="t">Sexual Preference</option>
+                    <option value="m">Male</option>
+                    <option value="f">Female</option>
+                  </select>
+                  <select name="tag" id="tag">
+                    <option value="t">#Tage</option>
+                    <option value="Goth">Goth</option>
+                    <option value="Geek">Geek</option>
+                    <option value="Nerd">Nerd</option>
+                    <option value="Gangstar">Gangstar</option>
+                    <option value="Spiritual">Spiritual</option>
+                  </select>
+                  <label for="bio">About:</label>
+                  <textarea name="bio" id="bio" cols="30" rows="3"></textarea>
+                  <!-- <input type="file" placeholder="Image" accept="image/*" name="img1" id="img1" multiple> -->
+                  <select name="gio" id="gio">
+                    <option value="t">Allow Geo-Location</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">Nope</option>
+                  </select>
+                  <input type="file" placeholder="Image" accept="image/*" name="img" id="img">
+                  <button type="submit" class="btn btn-primary btn-block btn-large" >submit</button>
+            </form>
+            <p id="prompt"></p>
+        </div>
+        <script>
+            function myFunction() {
+                var x = document.getElementById("myTopnav");
+                if (x.className === "topnav") {
+                    x.className += " responsive";
+                } else {
+                    x.className = "topnav";
+                }
+            }
+        </script>
+        <script>
+            document.getElementById("bio").value = '<%= about%>';
+            if ('<%= tag%>' == "1"){
+                document.getElementById("tag").style.borderColor = "red";
+            }if ('<%= gender%>' == "1"){
+                document.getElementById("gender").style.borderColor = "red";
+            }if ('<%= pref%>' == "1"){
+                document.getElementById("pref").style.borderColor = "red";
+            }if ('<%= bio%>' == "1"){
+                document.getElementById("bio").style.borderColor = "red";
+            }if ('<%= gio%>' == "1"){
+                document.getElementById("gio").style.borderColor = "red";
+            }if ('<%= age%>' == "1"){
+                document.getElementById("age").style.borderColor = "red";
+            }
+        </script>
+    </body>
+</html>

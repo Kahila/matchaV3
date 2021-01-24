@@ -1,0 +1,223 @@
+/* fame  */
+
+@import "compass/css3";
+.rating-box {
+    color: #f0f0f0;
+    text-shadow: 0px 1px 10px rgba(0, 0, 0, 1);
+    margin-bottom: 0;
+    height: 10px;
+    width: 80%;
+    margin-left: 60px;
+    position: absolute;
+    /* transform: rotate(90deg); */
+    z-index: 2;
+    /* top: -4px; */
+}
+
+.rating-star {
+    font-size: 20px;
+    width: 10px;
+    height: 10px;
+    padding: 0 12px;
+    position: relative;
+    display: block;
+    float: left;
+}
+
+.full-star:before {
+    color: #f2b01e;
+    content: "\2605";
+    position: absolute;
+    left: 0;
+    overflow: hidden;
+}
+
+.empty-star:before {
+    content: "\2605";
+    position: absolute;
+    left: 0;
+    overflow: hidden;
+}
+
+.half-star:before {
+    color: #f2b01e;
+    content: "\2605";
+    width: 50%;
+    position: absolute;
+    left: 0;
+    overflow: hidden;
+}
+
+.half-star:after {
+    content: '\2605';
+    position: absolute;
+    left: 1.5rem;
+    width: 50%;
+    text-indent: -1.5rem;
+    overflow: hidden;
+}
+
+.pic-counter-wrapper {
+    background-color: transparent;
+    position: absolute;
+    z-index: 2;
+    left: 44%;
+    top: 10px;
+}
+
+.dots-up {
+    position: absolute;
+    transform: rotate(90deg);
+    fill: #FE4F68;
+    right: 10px;
+    top: -4px;
+    width: 45px;
+    height: 45px;
+}
+
+.dot {
+    height: 6px;
+    width: 6px;
+    border-radius: 50%;
+    background-color: white;
+    margin: 0 3px;
+    display: inline-block;
+    /*   position: absolute;
+    z-index: 2; */
+}
+
+.arrow-box {
+    position: absolute;
+    z-index: 2;
+    width: 30px;
+    height: 30px;
+    background-color: rgba(0, 0, 0, .4);
+    border-radius: 50%;
+    text-align: center;
+    top: 12px;
+    left: 12px;
+}
+
+.users {
+    margin: auto;
+    width: 70%;
+    padding: 10px;
+}
+
+.container {
+    width: 250px;
+    height: 390px;
+    /* border: 1px solid black; */
+    margin: 70px auto 0 auto;
+    position: relative;
+    /* background-color: #454344; */
+    float: left;
+    box-shadow: 0 2px 7px gray;
+    margin-left: 40px;
+    border-radius: 50px;
+}
+
+.pic {
+    height: 55%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50px;
+}
+
+.kratos {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    /* right: 20px; */
+}
+
+.name-box {
+    width: 100%;
+    height: 80px;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+    box-sizing: border-box;
+    font-family: 'Source Sans Pro', sans-serif;
+    position: relative;
+}
+
+h2 {
+    padding-top: -0px;
+    padding-left: 20px;
+    color: white;
+    margin: 0;
+    margin-top: 10px;
+}
+
+p {
+    margin: 0;
+    margin-top: 10px;
+    color: f53b57;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.age {
+    padding-left: 6px;
+    font-weight: 200;
+}
+
+.pic-counter-wrapper {
+    background-color: transparent;
+    position: absolute;
+    z-index: 3;
+    left: 44%;
+    top: 10px;
+}
+
+.footer {
+    position: absolute;
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(transparent, white 60%);
+    bottom: 6px;
+    border-radius: 50px;
+    text-align: center;
+}
+
+.circle {
+    width: 70px;
+    height: 70px;
+    /* background-color: blue; */
+    border-radius: 50%;
+    display: inline-block;
+}
+
+#circleone {
+    background-color: #FF4E68;
+    float: left;
+    margin-left: 20px;
+}
+
+#circlethree {
+    /* background-color: #5BC495; */
+    float: right;
+    margin-right: 20px;
+}
+
+.back {
+    fill: white;
+    padding-top: 20px;
+    padding-right: 6px;
+    width: 30px;
+    height: 30px;
+}
+
+.star {
+    fill: #f53b57;
+    padding-top: 20px;
+    width: 50px;
+    height: 50px;
+}
+
+.heart {
+    fill: #f53b57;
+    padding-top: 20px;
+    width: 50px;
+    height: 50px;
+}

@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel='stylesheet' href='/stylesheets/login.css' />
+        <link rel='stylesheet' href='/stylesheets/nav.css' />
+    </head>
+    <body>
+        <div class="topnav" id="myTopnav">
+            <a href="/" class="active"><b>MATCHA</b> </a>
+            <a href="register" style="color: #f53b57;"><b>Register</b> </a>
+            <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+        </div>
+        <div class="login">
+            <h1>Login</h1>
+            <form method="post" action="/login/login">
+                <input type="Email" name="email" id="email" placeholder="Email" required="required" />
+                <input type="password" name="p" id="p" placeholder="Password" required="required"/>
+                <button type="submit" class="btn btn-primary btn-block btn-large">submit</button>
+            </form>
+            <a href="/forgot" style="color: #f53b57; margin-top: 10px;text-decoration: none;">forgot password</a>
+            <p id="prompt"></p>
+        </div>
+
+        <script>
+             if ('<%= error%>' == "-1"){
+                document.getElementById("p").style.borderColor = "red";
+                document.getElementById("email").style.borderColor = "red";
+                window.alert("Invalid Email or Password");
+            }else if ('<%= error%>' == "-2"){
+                document.getElementById("p").style.borderColor = "red";
+                document.getElementById("email").style.borderColor = "red";
+                window.alert("Check Email To Verify Account");
+            }
+        </script>
+    </body>
+</html>
