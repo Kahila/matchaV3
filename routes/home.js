@@ -13,8 +13,6 @@ router.get('/', function(req, res, next) {
     var fame = [];
     var age = [];
 
-    console.log(req.session);
-
     productsQuery = "SELECT * FROM matcha.usersTable WHERE userID!=?";
     database.conn().query(productsQuery, req.session.user.id, function(err, result) {
         if (err) throw err;
@@ -28,7 +26,6 @@ router.get('/', function(req, res, next) {
                     fame.push(data[i].userFame);
                     images.push(result[i].wallpaper);
                 }
-                console.log(fame)
                 res.render('home', { users: users, age: age, img: images, fame: fame });
             })
             // products = result;

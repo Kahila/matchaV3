@@ -14,25 +14,23 @@ var con = mysql.createConnection({
     port: "8889"
 });
 
-var checkPass = 0;
 var emailCheck = 0;
 //sending a randomly generated password to the user
-router.use(body_parser.urlencoded({extended: true}));
-router.post('/forgot', function(req, res, next){
+router.use(body_parser.urlencoded({ extended: true }));
+router.post('/forgot', function(req, res, next) {
     var emailQuery = "SELECT * FROM matcha.usersTable WHERE userEmail=?";
-    con.query(emailQuery, req.body.email, function(err, result){
+    con.query(emailQuery, req.body.email, function(err, result) {
         if (err) throw err;
-        if (result.length == 0)
-        {
-            emailCheck = 1;//email does not exists
+        if (result.length == 0) {
+            emailCheck = 1; //email does not exists
             res.redirect("back");
-        }else
-        {
-            var code = cryptoRandomString({length: 6, type: 'distinguishable'});//string to be send to the new client for verification
+        } else {
+            var code = cryptoRandomString({ length: 6, type: 'distinguishable' }); //string to be send to the new client for verification
+            console.log("code sent to user is" + code);
             var pass = bcrypt.hashSync(code, 10);
             console.log(pass);
-            insert = "UPDATE matcha.usersTable SET userPassword='"+ pass +"' WHERE userEmail=?";
-            con.query(insert, result[0].userEmail, function(err, result){
+            insert = "UPDATE matcha.usersTable SET userPassword='" + pass + "' WHERE userEmail=?";
+            con.query(insert, result[0].userEmail, function(err, result) {
                 if (err) throw err;
                 console.log("password changed");
                 emailCheck = 2; //the password has been change successfully
@@ -46,8 +44,8 @@ router.post('/forgot', function(req, res, next){
 })
 
 router.get('/', function(req, res, next) {
-  res.render('forgot', {check: emailCheck});
-  emailCheck = 0;
+    res.render('forgot', { check: emailCheck });
+    emailCheck = 0;
 });
 
 module.exports = router;

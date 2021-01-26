@@ -14,18 +14,19 @@ var settingsRouter = require('./routes/settings');
 var homeRouter = require('./routes/home');
 var logoutRouter = require('./routes/logout');
 var forgotRouter = require('./routes/forgot');
+var userInfoRouter = require('./routes/userInfo');
 
 var app = express();
 
 //sattings for the session 
 app.use(session({
-  secret: 'secret',
+    secret: 'secret',
 }))
 
-app.use(function(req, res, next){
-  res.locals.user = req.session.user;
-  res.locals.errorMessages = req.session.errorMessages;
-  next()
+app.use(function(req, res, next) {
+    res.locals.user = req.session.user;
+    res.locals.errorMessages = req.session.errorMessages;
+    next()
 })
 
 // view engine setup
@@ -47,21 +48,22 @@ app.use('/settings', settingsRouter);
 app.use('/home', homeRouter);
 app.use('/logout', logoutRouter);
 app.use('/forgot', forgotRouter);
+app.use('/userInfo', userInfoRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  next(createError(404));
+    next(createError(404));
 });
 
 // error handler
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+    // set locals, only providing error in development
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+    // render the error page
+    res.status(err.status || 500);
+    res.render('error');
 });
 
 module.exports = app;

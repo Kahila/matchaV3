@@ -1,3 +1,6 @@
+/* notification */
+
+
 /* fame  */
 
 @import "compass/css3";
@@ -60,7 +63,7 @@
 .pic-counter-wrapper {
     background-color: transparent;
     position: absolute;
-    z-index: 2;
+    z-index: 3;
     left: 44%;
     top: 10px;
 }
@@ -86,18 +89,6 @@
     z-index: 2; */
 }
 
-.arrow-box {
-    position: absolute;
-    z-index: 2;
-    width: 30px;
-    height: 30px;
-    background-color: rgba(0, 0, 0, .4);
-    border-radius: 50%;
-    text-align: center;
-    top: 12px;
-    left: 12px;
-}
-
 .users {
     margin: auto;
     width: 70%;
@@ -106,7 +97,7 @@
 
 .container {
     width: 250px;
-    height: 390px;
+    height: 490px;
     /* border: 1px solid black; */
     margin: 70px auto 0 auto;
     position: relative;
