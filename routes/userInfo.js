@@ -8,6 +8,7 @@ router.get('/', function(req, res, next) {
     var images = [];
     var fame = [];
     var age = [];
+    var id = [];
 
     var userQuery = "SELECT * FROM matcha.usersMatchesTable";
     database.conn().query(userQuery, function(err, result) {
@@ -26,10 +27,10 @@ router.get('/', function(req, res, next) {
                                 age.push(result2[info].userAge);
                                 fame.push(result2[info].userFame)
                                 images.push(result3[info].wallpaper);
-                                console.log("------" + result[item].userID_one);
+                                id.push(result2[info].userID);
                             }
                         }
-                    }
+                    } else
                     if (result[item].userID_two == req.session.user.id && result[item].matched == 0) {
                         for (var info in result2) {
                             if (result2[info].userID == result[item].userID_one) {
@@ -37,12 +38,12 @@ router.get('/', function(req, res, next) {
                                 age.push(result2[info].userAge);
                                 fame.push(result2[info].userFame)
                                 images.push(result3[info].wallpaper);
-                                console.log("------" + result[item].userID_one);
+                                id.push(result2[info].userID);
                             }
                         }
                     }
                 }
-                res.render('userInfo', { users: users, age: age, img: images, fame: fame });
+                res.render('userInfo', { users: users, age: age, img: images, fame: fame, id: id });
             }, )
         })
     })

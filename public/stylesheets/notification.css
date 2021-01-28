@@ -1,0 +1,131 @@
+* {
+    font-family: "verdana", "Arial";
+    font-size: 12px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    text-decoration: none;
+    box-sizing: border-box !important;
+    -webkit-box-sizing: border-box !important;
+    -moz-box-sizing: border-box !important;
+    -ms-box-sizing: border-box !important;
+}
+
+.notify {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    border: 1px solid black;
+    width: 45%;
+    margin: 5px auto;
+    margin-top: 40px;
+}
+
+.enclose {
+    margin-top: 80px;
+    width: 100%;
+}
+
+div.notify .header-wrapper,
+div.notify .content-wrapper {
+    padding: 10px;
+    -moz-box-shadow: inset 0 2px 0 -1px rgba(255, 255, 255, 0.2);
+    -webkit-box-shadow: inset 0 2px 0 -1px rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 2px 0 -1px rgba(255, 255, 255, 0.2);
+}
+
+
+/*  */
+
+div.notify .header-wrapper .title {
+    font-family: "Helvetica";
+    font-size: 20px;
+    font-weight: bold;
+    color: #f53b57;
+    float: left;
+}
+
+div.notify .header-wrapper .notifications {
+    font-family: "verdana";
+    font-size: 13px;
+    padding-left: 30px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    color: #f53b57;
+    float: right;
+}
+
+div.notify .content-wrapper {
+    display: table;
+    padding-left: 15px;
+    padding-right: 15px;
+    /* background-color: #f53b57; */
+    width: 100%
+}
+
+div.notify .content-wrapper .lastest .comments {
+    margin-left: 15px;
+}
+
+.number {
+    float: right;
+    width: 90px;
+    height: 50px;
+}
+
+div.notify .content-wrapper .number {
+    font-family: "Helvetica";
+    float: right;
+    font-size: 30pt;
+    /* color: white; */
+    font-weight: 50;
+    background: white;
+    height: 60px;
+    padding: 0px 15px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    margin-left: 10px;
+    -moz-box-shadow: inset 0 1px 0 0 rgba(0, 0, 0, 0.3), inset 0 -1px 0 0 rgba(255, 255, 255, 0.3);
+    -webkit-box-shadow: inset 0 1px 0 0 rgba(0, 0, 0, 0.3), inset 0 -1px 0 0 rgba(255, 255, 255, 0.3);
+    box-shadow: inset 0 1px 0 0 rgba(0, 0, 0, 0.3), inset 0 -1px 0 0 rgba(255, 255, 255, 0.3);
+}
+
+img {
+    width: 70px;
+    height: 90px;
+    border-radius: 5px;
+}
+
+.fa-user {
+    color: #f53b57;
+    font-size: 6em;
+    display: inline-block;
+}
+
+.floatleft {
+    float: left;
+    padding: 0px 15px;
+    text-shadow: 0px 1px 1px #000;
+    font-size: 1em;
+    color: #fff;
+}
+
+.pdtop {
+    padding-top: 5px;
+    line-height: 18px;
+}
+
+#content {
+    display: table;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+.icon {
+    fill: #f53b57;
+    padding: 4px;
+    width: 55px;
+    height: 55px;
+}
