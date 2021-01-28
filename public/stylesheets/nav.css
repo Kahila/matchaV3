@@ -24,6 +24,7 @@ body {
 
 .active {
     background-color: #f53b57;
+    height: 55px;
     color: white;
 }
 
@@ -114,6 +115,7 @@ body {
     .topnav.responsive .dropdown .dropbtn {
         display: block;
         width: 100%;
+        height: 55px;
         text-align: left;
     }
 }

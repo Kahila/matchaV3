@@ -12,6 +12,7 @@ router.get('/', function(req, res, next) {
     var images = [];
     var fame = [];
     var age = [];
+    var id = [];
 
     productsQuery = "SELECT * FROM matcha.usersTable WHERE userID!=?";
     database.conn().query(productsQuery, req.session.user.id, function(err, result) {
@@ -25,8 +26,9 @@ router.get('/', function(req, res, next) {
                     age.push(data[i].userAge);
                     fame.push(data[i].userFame);
                     images.push(result[i].wallpaper);
+                    id.push(data[i].userID);
                 }
-                res.render('home', { users: users, age: age, img: images, fame: fame });
+                res.render('home', { users: users, age: age, img: images, fame: fame, id: id });
             })
             // products = result;
     });
