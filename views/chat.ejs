@@ -3,11 +3,10 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel='stylesheet' href='/stylesheets/login.css' />
+    <link rel='stylesheet' href='/stylesheets/chat.css' />
     <link rel='stylesheet' href='/stylesheets/nav.css' />
     <link rel='stylesheet' href='/stylesheets/users.css' />
-    <link rel='stylesheet' href='/stylesheets/notification.css' />
-
+    <link rel='stylesheet' href='/stylesheets/login.css' />
 </head>
 
 <body>
@@ -39,47 +38,30 @@
         </b> </a>
         <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
     </div>
-    <!--  -->
-    <div class="enclose">
-        <% for (var item in notification) {%>
-            <div class="notify">
-                <div class="header-wrapper">
-                    <span class="title">Notification</span>
-                    <span class="notifications">Date</span>
-                </div>
-                <div class="content-wrapper">
-                    <div class="floatleft"><img src="<%= wallpaper[item] %>" alt=""></i>
-                    </div>
-                    <div class="floatleft pdtop">
-                        <%= notification[item] %>
-                            <BR>
-                            <strong>Fame</strong> <strong>4</strong>
-                    </div>
-                    <a href="">
-                        <div class="floatleft"><span class="number">
-                        <b>
-                            <svg class="icon" width="24" height="24" viewBox="0 0 24 24">
-                                <path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 16.538l-4.592-4.548 4.546-4.587-1.416-1.403-4.545 4.589-4.588-4.543-1.405 1.405 4.593 4.552-4.547 4.592 1.405 1.405 4.555-4.596 4.591 4.55 1.403-1.416z">
-                                </path>
-                            </svg>
-                        </b>
-                    </span></div>
-                    </a>
-                    <a href="http://localhost:3000/accept/accept?id=<%= id[item]%>">
-                        <div class="floatleft"><span class="number">
-                        <b>
-                            <svg class="icon" width="24" height="24" viewBox="0 0 24 24">
-                                <path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.25 8.891l-1.421-1.409-6.105 6.218-3.078-2.937-1.396 1.436 4.5 4.319 7.5-7.627z">
-                                </path>
-                            </svg>
-                        </b>
-                    </span></div>
-                    </a>
-                </div>
-            </div>
-            <% }%>
-    </div>
 
+    <ul class="chat-thread">
+        <style>
+            li:nth-child(even):before {
+                left: -80px;
+                background-image: url('<%= friend%>');
+                background-size: 50px;
+            }
+            
+            li:nth-child(odd):before {
+                right: -80px;
+                background-image: url('<%= wallpaper%>');
+                background-size: 50px;
+            }
+        </style>
+        <% for (var item in message) %>
+            <li>
+                <%= message[item]%>
+            </li>
+    </ul>
+
+    <form class="chat-window" method="post" action="/chat/chat">
+        <input class="chat-window-message" name="chat" type="text" autocomplete="off" autofocus />
+    </form>
     <script>
         function myFunction() {
             var x = document.getElementById("myTopnav");

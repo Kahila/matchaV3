@@ -18,6 +18,9 @@ var userInfoRouter = require('./routes/userInfo');
 var requestRouter = require('./routes/request');
 var removerRouter = require('./routes/remove');
 var notificationRouter = require('./routes/notification');
+var acceptRouter = require('./routes/accept');
+var profileRouter = require('./routes/profile');
+var charRouter = require('./routes/chat');
 
 var app = express();
 
@@ -55,6 +58,10 @@ app.use('/userInfo', userInfoRouter);
 app.use('/request', requestRouter);
 app.use('/remove', removerRouter);
 app.use('/notification', notificationRouter);
+app.use('/accept', acceptRouter);
+app.use('/profile', profileRouter);
+app.use('/chat', charRouter);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     next(createError(404));

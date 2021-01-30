@@ -36,6 +36,8 @@ router.post('/login', function(req, res, next) {
                                 uname: null,
                                 lname: null,
                                 fname: null,
+                                filled: null,
+                                wall: null,
                             };
 
                             req.session.user = user; //creating the user session
@@ -44,6 +46,7 @@ router.post('/login', function(req, res, next) {
                             req.session.user.lname = content[0].userLastName;
                             req.session.user.uname = content[0].userName;
                             req.session.user.id = content[0].userID;
+                            req.session.user.filled = result[0].verificationCode;
                             console.log(content);
                         }
 

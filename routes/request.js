@@ -14,7 +14,7 @@ router.get('/request', function(req, res, next) {
     database.conn().query(insertQuery, function(err, result) {
         if (err) throw err;
         //send email and add notification
-        var notificationQuery = "INSERT INTO matcha.usersNotificationTable (userID, senderID, notificationType) VALUES (\"" + req.query.id + "\", \"" + req.session.user.id + "\", 'connection request from \"" + req.session.user.email + "\"')"
+        var notificationQuery = "INSERT INTO matcha.usersNotificationTable (userID, senderID, notificationType) VALUES (\"" + req.query.id + "\", \"" + req.session.user.id + "\", 'connection request from \"" + req.session.user.uname + "\"')"
         database.conn().query(notificationQuery, function(err, result) {
             if (err) throw err;
             //send email
